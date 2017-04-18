@@ -25,7 +25,7 @@ public class FileWordAnalyzer {
 		return sortedWords;
 	}
 
-	public ArrayList wordsContatiningSubstring(String substring) {
+	public ArrayList wordsContatiningSubString(String substring) {
 		ArrayList<String> containingWords = new ArrayList<>();
 		
 		for(String word : getStrippedFilePart()){
