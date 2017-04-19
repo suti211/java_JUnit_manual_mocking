@@ -21,20 +21,14 @@ public class FilePartReader {
 		}
 	}
 
-	private String read() throws FileNotFoundException, IOException {
+	private String read() throws IOException {
 		return new String(Files.readAllBytes(Paths.get(filePath)));
 	}
 
-	public String readLines() {
+	public String readLines() throws IOException {
 		String lines = null;
 
-		try {
-			lines = read();
-		} catch (FileNotFoundException e) {
-			System.err.println("Nó szaccs fájl: " + filePath);
-		} catch (IOException e) {
-			System.err.println("Shit went wrong during file reading...");
-		}
+		lines = read();
 
 		String[] rows = lines.split("\n");
 		String result = "";

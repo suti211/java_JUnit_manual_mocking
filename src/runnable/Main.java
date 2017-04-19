@@ -6,7 +6,7 @@ import io.FilePartReader;
 import statistics.FileWordAnalyzer;
 
 public class Main {
-	public static void main(String[] args) {
+	public static void main(String[] args) throws Exception {
 		FilePartReader fpr = new FilePartReader("src/file.txt", 1, 4);
 		FileWordAnalyzer fwa = new FileWordAnalyzer(fpr);
 		System.out.println(fpr.readLines());

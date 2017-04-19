@@ -1,5 +1,7 @@
 package statistics;
 
+import java.io.FileNotFoundException;
+import java.io.IOException;
 import java.util.ArrayList;
 
 import io.FilePartReader;
@@ -11,7 +13,7 @@ public class FileWordAnalyzer {
 		this.partReader = partReader;
 	}
 
-	public ArrayList<String> wordsByAbc() {
+	public ArrayList<String> wordsByAbc() throws IOException {
 		ArrayList<String> sortedWords = new ArrayList<>();
 
 		for (String word : getStrippedFilePart()) {
@@ -24,7 +26,7 @@ public class FileWordAnalyzer {
 		return sortedWords;
 	}
 
-	public ArrayList<String> wordsContatiningSubString(String substring) {
+	public ArrayList<String> wordsContatiningSubString(String substring) throws IOException {
 		ArrayList<String> containingWords = new ArrayList<>();
 
 		for (String word : getStrippedFilePart()) {
@@ -35,7 +37,7 @@ public class FileWordAnalyzer {
 		return containingWords;
 	}
 
-	private String[] getStrippedFilePart() {
+	private String[] getStrippedFilePart() throws IOException {
 		String filePart = partReader.readLines();
 		String[] wordsInPart = filePart.replaceAll("\\s", " ").split(" ");
 		return wordsInPart;
